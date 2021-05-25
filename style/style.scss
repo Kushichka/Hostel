@@ -1,0 +1,228 @@
+body {
+    font-family: "Segoe UI";
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    margin: 0;
+    padding-left: 0;
+    list-style-type: none;
+}
+
+.color-red {
+    color: rgb(255, 36, 36);
+}
+.color-green {
+    color: rgb(8, 172, 8);
+}
+
+
+section {
+    max-width: 1440px;
+    background-image: url(../img/background1.png);
+    // background-repeat: no-repeat;
+    min-height: 800px;
+    margin: 0 auto;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.error {
+    color: blue;
+}
+
+.logo {
+    height: 70px;
+    width: 70px;
+    margin-top: 10px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &-left {
+        display: flex;
+        &-item {
+            &:hover {
+                border: 1px solid wheat;
+                padding: 4px;
+            }
+        }
+    }
+    &-right {
+        position: relative;
+        display: flex;
+    }
+    &-item {
+        text-transform: uppercase;
+        font-size: 14px;
+        padding: 5px;
+        color: wheat;
+        &:not(:last-child) {
+            margin-right: 10px;
+        }
+        margin-top: 10px;
+        &:hover {
+            cursor: pointer;
+        }
+        &-link {
+            color: wheat;
+        }
+    }
+}
+
+.btn {
+    text-transform: none;
+    padding: 10px;
+    background-color: rgb(103, 52, 199);
+    border-radius: 10px;
+    &:hover {
+        background-color: rgb(62, 32, 117);
+        cursor: pointer;
+    }
+    &-1 {
+        background-color: rgb(103, 52, 199);
+        border-radius: 10px;
+        padding: 4px 20px;
+        color: wheat;
+        &:hover {
+            background-color: rgb(62, 32, 117);
+            cursor: pointer;
+        }
+    }
+}
+h1 {
+    margin: 190px 0 20px 10px;
+    font-size: 50px;
+    color: #5a3d58;
+}
+
+.box-wrapper {
+    margin-left: 10px;
+    // margin: 0 auto;
+    padding: 20px;
+    background-color: wheat;
+    display: inline-block;
+}
+
+.reservation-box {
+    
+    &-item {
+        padding: 9px 19px;
+        color: wheat;
+        font-family: "Segoe UI";
+        font-size: 20px;
+        appearance: none;
+        letter-spacing: 2px;
+        font-weight: bold;
+        text-transform: uppercase;
+        background-color: #724c70;
+        &:hover {
+            cursor: pointer;
+        }
+        &-item {
+            font-weight: bold;
+            font-family: "Segoe UI";
+        }
+    }
+    &-room {
+        width: 400px;
+    }
+    &-start, &-end {
+        padding: 7px 19px;
+        width: 200px;
+    }
+    &-btn {
+        background-color: rgb(103, 52, 199);
+        display: block;
+        margin: 20px auto 0 auto;
+
+    }
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+}
+
+.loginBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 200px;
+    background-color: wheat;
+    padding: 10px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    &-item {
+        display: block;
+        border: 1px solid wheat;
+        padding: 5px;
+        border-radius: 5px;
+        &:not(:last-child) {
+            margin-bottom: 10px;
+        }
+    }
+}
+
+.rooms-wrapper {
+    background-color: wheat;
+    padding: 10px;
+    margin: 50px auto 0 auto;
+    display: flex;
+    justify-content: center;
+    max-width: 900px;
+}
+
+.rooms-box {
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+    // align-items: center;
+    max-width: 900px;
+    background-color: wheat;
+    &-item {
+        display: flex;
+        background-color: #724c70;
+        &:not(:last-child) {
+            margin-bottom: 10px;
+        }
+    }
+    &-description {
+        margin: 10px;
+        color: wheat;
+        &-btn {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+    }
+    &-photo {
+        margin: 10px;
+        width: 200px;
+        height: 200px; 
+    }
+    &-btn {
+        text-transform: uppercase;
+        font-size: 15px;
+        letter-spacing: 1px;
+        box-shadow: 0 0 10px black;
+        font-weight: bold;
+        display: inline-block;
+        &:hover {
+            box-shadow: 0 0 5px black;
+            color: rgba(245, 222, 179, 0.795);
+        }
+    }
+    &-status {
+        margin-top: 15px;
+    }
+}
