@@ -66,7 +66,40 @@ if(isset($_REQUEST['action'])) {
             header('Location: index.php');
         break;
         case 'rooms':
-            $query = $db->prepare("SELECT * FROM room");
+            // $city = $_POST['city'];
+            // $type = $_POST['room'];
+            switch ($_POST['city']) {
+                case 'Gdansk':
+                    $city = 'Gdansk';
+                    // $query = $db->prepare("SELECT * FROM room WHERE city = 'Gdansk'");
+                    break;
+                case 'London':
+                    $city = 'London';
+                    // $query = $db->prepare("SELECT * FROM room WHERE city = 'London'");
+                    break;
+                case 'Paris':
+                    $city = 'Paris';
+                    // $query = $db->prepare("SELECT * FROM room WHERE city = 'Paris'");
+                    break;             
+                default:
+                    $smarty->display('index.tpl');
+                    break;
+            }
+            switch ($_POST['room']) {
+                case '1': 
+                    $type = 1;
+                    break;
+                case '2':
+                    $type = 2;
+                    break;
+                case '3':
+                    $type = 3;
+                    break;
+                default:
+                    $smarty->display('index.tpl');
+                    break;
+            }
+            $query = $db->prepare("SELECT * FROM room WHERE city = '$city' AND type = '$type'");
             $query->execute();
             $result = $query->get_result();
             $rooms = array();

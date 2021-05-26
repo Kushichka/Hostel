@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-05-25 20:41:13
+/* Smarty version 3.1.39, created on 2021-05-26 20:50:07
   from 'C:\xampp\htdocs\php\hostel\templates\rooms.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60ad44c9ddfb89_20118893',
+  'unifunc' => 'content_60ae985fe6de42_30766955',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a22fa4b131597275c0fc0fcf1e8a9a5eacf72809' => 
     array (
       0 => 'C:\\xampp\\htdocs\\php\\hostel\\templates\\rooms.tpl',
-      1 => 1621968066,
+      1 => 1622054979,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:foot.tpl' => 1,
   ),
 ),false)) {
-function content_60ad44c9ddfb89_20118893 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60ae985fe6de42_30766955 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:head.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
     <div class="rooms-wrapper">
@@ -35,7 +35,7 @@ $_smarty_tpl->tpl_vars['room']->do_else = false;
 ?>
                 <div class="rooms-box-item" value="<?php echo $_smarty_tpl->tpl_vars['room']->value['id'];?>
 ">
-                    <img class="rooms-box-photo" src="./img/room<?php echo $_smarty_tpl->tpl_vars['room']->value['id'];?>
+                    <img class="rooms-box-photo" src="./img/room<?php echo $_smarty_tpl->tpl_vars['room']->value['imgID'];?>
 .jpg" alt="room">
                     <div class="rooms-box-description">
                         <div class="rooms-box-description-text">

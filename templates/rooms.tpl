@@ -3,7 +3,7 @@
         <div class="rooms-box">
             {foreach from=$rooms item=room}
                 <div class="rooms-box-item" value="{$room.id}">
-                    <img class="rooms-box-photo" src="./img/room{$room.id}.jpg" alt="room">
+                    <img class="rooms-box-photo" src="./img/room{$room.imgID}.jpg" alt="room">
                     <div class="rooms-box-description">
                         <div class="rooms-box-description-text">
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium cupiditate recusandae beatae, fugiat nulla rerum nobis unde aliquam modi totam debitis accusamus magnam, repudiandae hic, architecto dolore reprehenderit deleniti maxime.
