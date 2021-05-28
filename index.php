@@ -37,6 +37,7 @@ if(isset($_REQUEST['action'])) {
                 $_SESSION['userID'] = $row['id'];
                 $_SESSION['firstName'] = $row['firstName'];
                 $_SESSION['secondName'] = $row['secondName'];
+                $_SESSION['email'] = $row['email'];
                 $smarty->assign('firstName', $_SESSION['firstName']);
                 $smarty->display('index.tpl');
             } else {
@@ -66,20 +67,15 @@ if(isset($_REQUEST['action'])) {
             header('Location: index.php');
         break;
         case 'rooms':
-            // $city = $_POST['city'];
-            // $type = $_POST['room'];
             switch ($_POST['city']) {
                 case 'Gdansk':
                     $city = 'Gdansk';
-                    // $query = $db->prepare("SELECT * FROM room WHERE city = 'Gdansk'");
                     break;
                 case 'London':
                     $city = 'London';
-                    // $query = $db->prepare("SELECT * FROM room WHERE city = 'London'");
                     break;
                 case 'Paris':
                     $city = 'Paris';
-                    // $query = $db->prepare("SELECT * FROM room WHERE city = 'Paris'");
                     break;             
                 default:
                     $smarty->display('index.tpl');
@@ -109,6 +105,66 @@ if(isset($_REQUEST['action'])) {
             $smarty->assign('rooms', $rooms);
             $smarty->display('rooms.tpl');
         break;
+        case 'reserv':
+            // if(!isset($_POST['roomID'])) {
+            //     $_POST['roomID'] = 1;
+            //     $smarty->assign('error', $_POST['roomID']);
+            //     $smarty->display('login.tpl');
+            // }
+            // else {
+            //     $smarty->assign('error', $_POST['roomID']);
+            //     $smarty->display('login.tpl');
+            // }
+            if(!isset($_SESSION['userID'])) {
+                
+                $smarty->assign('error', "Login to make a reservations");
+                $smarty->display('login.tpl');
+            }
+            else {
+                $query = $db->prepare("INSERT INTO reservation (id, username, roomID) VALUES (NULL, ?, ?)");
+                $query->bind_param("si", $_SESSION['email'],$_POST['roomID']);
+                $query->execute();
+                header('Location: index.php?action=reservations');
+            }
+            break;
+        case 'reservations':
+            if(!isset($_SESSION['userID'])) {
+                
+                $smarty->assign('error', "Login to make a reservations");
+                $smarty->display('login.tpl');
+            }
+            $query = $db->prepare("SELECT roomID FROM reservation WHERE username = ? LIMIT 1");
+            $query->bind_param("s", $_SESSION['email']);
+            $query->execute();
+            $result = $query->get_result();
+            $row = $result->fetch_assoc();
+            // $arr = array();
+            // while ($row = $result->fetch_assoc()) {
+            //     array_push($arr, $row);
+            // }
+            // $smarty->assign('error', $row['roomID']);
+            // $smarty->display('login.tpl');
+
+            // $roomID = array();
+            // while ($row = $result->fetch_assoc()) {
+            //         array_push($roomID, $row);
+            // } 
+            // $smarty->assign('roomIDs', $roomID);
+
+            $query = $db->prepare("SELECT * FROM room WHERE id = ?");
+            $query->bind_param("i", $row['roomID']);
+            $query->execute();
+            $result = $query->get_result();
+            $rooms = array();
+            while ($rows = $result->fetch_assoc()) {
+                array_push($rooms, $rows);
+            }
+            $smarty->assign('rooms', $rooms);
+            $smarty->display('reservations.tpl');
+            break;
+        case 'deleteReserv':
+            
+            break;
         default: 
             $smarty->display('index.tpl');
         break;

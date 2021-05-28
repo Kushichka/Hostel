@@ -35,7 +35,27 @@ section {
 }
 
 .error {
-  color: blue;
+  color: white;
+  background-color: rgba(255, 32, 32, 0.877);
+  border-radius: 0 0 10px 10px;
+  text-align: center;
+  font-size: 13px;
+  opacity: 0;
+  animation: newError 0.8s;
+  animation-fill-mode: forwards;
+}
+
+.error-msg {
+  padding-bottom: 3px;
+}
+
+@keyframes newError {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .logo {
@@ -229,13 +249,11 @@ h1 {
   text-transform: uppercase;
   font-size: 15px;
   letter-spacing: 1px;
-  box-shadow: 0 0 10px black;
   font-weight: bold;
   display: inline-block;
 }
 
 .rooms-box-btn:hover {
-  box-shadow: 0 0 5px black;
   color: rgba(245, 222, 179, 0.795);
 }
 

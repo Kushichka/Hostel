@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-05-28 22:46:11
-  from 'C:\xampp\htdocs\php\hostel\templates\rooms.tpl' */
+/* Smarty version 3.1.39, created on 2021-05-29 00:16:36
+  from 'C:\xampp\htdocs\php\hostel\templates\reservations.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60b15693a2a170_11588350',
+  'unifunc' => 'content_60b16bc441ccd3_65062244',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'a22fa4b131597275c0fc0fcf1e8a9a5eacf72809' => 
+    'fd769310c31feca04470895d097a515237021b93' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\php\\hostel\\templates\\rooms.tpl',
-      1 => 1622234752,
+      0 => 'C:\\xampp\\htdocs\\php\\hostel\\templates\\reservations.tpl',
+      1 => 1622240021,
       2 => 'file',
     ),
   ),
@@ -22,9 +22,13 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:foot.tpl' => 1,
   ),
 ),false)) {
-function content_60b15693a2a170_11588350 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60b16bc441ccd3_65062244 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:head.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
+
+    <!-- <div class="reservations-box">
+        <h1>Your Reservations</h1>
+    </div> -->
     <div class="rooms-wrapper">
         <div class="rooms-box">
             <?php
@@ -41,7 +45,7 @@ $_smarty_tpl->tpl_vars['room']->do_else = false;
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium cupiditate recusandae beatae, fugiat nulla rerum nobis unde aliquam modi totam debitis accusamus magnam, repudiandae hic, architecto dolore reprehenderit deleniti maxime.
                         </div>
                         <div class="rooms-box-status">
-                            <form action="index.php" name="reserv" method="post">
+                            <form action="index.php" name="deleteReserv" method="post">
                                 <input type="hidden" name="action" value="reserv">
                                 <input type="hidden" name="roomID" value=<?php echo $_smarty_tpl->tpl_vars['room']->value['id'];?>
 >
@@ -54,14 +58,11 @@ $_smarty_tpl->tpl_vars['room']->do_else = false;
                                 <?php } elseif (($_smarty_tpl->tpl_vars['room']->value['type']) == 3) {?>
                                     <div class="rooms-box-status-type">Room: 1 bed in public room with 6 beds</div>
                                 <?php }?>
-                                <?php if (($_smarty_tpl->tpl_vars['room']->value['status']) == 1) {?>
-                                <div class="rooms-box-status-name">Status: <span class="color-green">Free</span></div>
+                                <div class="rooms-box-status-name">id: <?php echo $_smarty_tpl->tpl_vars['room']->value['id'];?>
+</div>
                                 <div class="rooms-box-description-btn">
-                                    <button class="rooms-box-btn btn-1">Reserv</button>
+                                    <button class="rooms-box-btn btn-1">Delete</button>
                                 </div>
-                                <?php } else { ?>
-                                <div class="rooms-box-status-name">Status: <span class="color-red">Reserved</span></div>
-                            <?php }?>
                         </form>
                         </div>
                     </div>

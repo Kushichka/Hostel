@@ -18,11 +18,11 @@
                             About Us</li>
                         <li class="navbar-item navbar-left-item">Gallery</li>
                         <li class="navbar-item navbar-left-item">Contact</li>
-                        <li class="navbar-item navbar-left-item">Reservations</li>
+                        <li class="navbar-item navbar-left-item"><a class="navbar-item-link" href="index.php?action=reservations">Reservations</a></li>
                     </ul>
                     <ul class="navbar-right">
-                        <li class="navbar-item btn navbar-right-item" id="greeting">Hello {$firstName}</li>
-                        <li class="navbar-item btn navbar-right-item" id="logout"><a href="index.php?action=logout" class="navbar-item-link">Logout</a></li>
+                        <li class="navbar-item btn" id="greeting">Hello {$firstName}</li>
+                        <li class="navbar-item btn" id="logout"><a href="index.php?action=logout" class="navbar-item-link">Logout</a></li>
                     </ul>
                 {else}
                     <ul class="navbar-left">
@@ -31,8 +31,8 @@
                         <li class="navbar-item navbar-left-item">Contact</li>
                     </ul>
                     <ul class="navbar-right">
-                        <li class="navbar-item btn navbar-right-item" id="login"><a href="index.php?action=registr" class="navbar-item-link">Sign Up</a></li>
-                        <li class="navbar-item btn navbar-right-item" id="registr"><a href="index.php?action=login" class="navbar-item-link">Sign In</a></li>
+                        <li class="navbar-item btn" id="login"><a href="index.php?action=registr" class="navbar-item-link">Sign Up</a></li>
+                        <li class="navbar-item btn" id="registr"><a href="index.php?action=login" class="navbar-item-link">Sign In</a></li>
                     </ul>
                 {/if}
             </div>

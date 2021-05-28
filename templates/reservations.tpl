@@ -1,4 +1,8 @@
 {include file="head.tpl"}
+
+    <!-- <div class="reservations-box">
+        <h1>Your Reservations</h1>
+    </div> -->
     <div class="rooms-wrapper">
         <div class="rooms-box">
             {foreach from=$rooms item=room}
@@ -9,7 +13,7 @@
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium cupiditate recusandae beatae, fugiat nulla rerum nobis unde aliquam modi totam debitis accusamus magnam, repudiandae hic, architecto dolore reprehenderit deleniti maxime.
                         </div>
                         <div class="rooms-box-status">
-                            <form action="index.php" name="reserv" method="post">
+                            <form action="index.php" name="deleteReserv" method="post">
                                 <input type="hidden" name="action" value="reserv">
                                 <input type="hidden" name="roomID" value={$room.id}>
                                 <div class="rooms-box-status-city">City: {$room.city}</div>
@@ -20,14 +24,10 @@
                                 {else if ($room.type) == 3}
                                     <div class="rooms-box-status-type">Room: 1 bed in public room with 6 beds</div>
                                 {/if}
-                                {if ($room.status) == 1}
-                                <div class="rooms-box-status-name">Status: <span class="color-green">Free</span></div>
+                                <div class="rooms-box-status-name">id: {$room.id}</div>
                                 <div class="rooms-box-description-btn">
-                                    <button class="rooms-box-btn btn-1">Reserv</button>
+                                    <button class="rooms-box-btn btn-1">Delete</button>
                                 </div>
-                                {else}
-                                <div class="rooms-box-status-name">Status: <span class="color-red">Reserved</span></div>
-                            {/if}
                         </form>
                         </div>
                     </div>
