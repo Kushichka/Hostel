@@ -25,7 +25,7 @@
                                 {else if ($room.type) == 3}
                                     <div class="rooms-box-status-type">Room: 1 bed in public room with 6 beds</div>
                                 {/if}
-                                <div class="rooms-box-status-name">id: {$room.roomID}</div>
+                                <!-- <div class="rooms-box-status-name">id: {$room.roomID}</div> -->
                                 <div class="rooms-box-description-btn">
                                     <button class="rooms-box-btn btn-1">Delete</button>
                                 </div>

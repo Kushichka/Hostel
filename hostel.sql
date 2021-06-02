@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Май 29 2021 г., 00:24
+-- Время создания: Июн 02 2021 г., 08:48
 -- Версия сервера: 10.4.19-MariaDB
 -- Версия PHP: 8.0.6
 
@@ -33,14 +33,6 @@ CREATE TABLE `reservation` (
   `roomID` varchar(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Дамп данных таблицы `reservation`
---
-
-INSERT INTO `reservation` (`id`, `username`, `roomID`) VALUES
-(4, 'kushichka@gmail.com', '17'),
-(8, 'kushichka@gmail.com', '4');
-
 -- --------------------------------------------------------
 
 --
@@ -62,22 +54,22 @@ CREATE TABLE `room` (
 INSERT INTO `room` (`id`, `city`, `type`, `status`, `imgID`) VALUES
 (1, 'Gdansk', 1, '1', 1),
 (2, 'Gdansk', 1, '1', 2),
-(3, 'Gdansk', 2, '0', 3),
+(3, 'Gdansk', 2, '1', 3),
 (4, 'Gdansk', 2, '1', 4),
-(5, 'Gdansk', 3, '0', 5),
+(5, 'Gdansk', 3, '1', 5),
 (6, 'Gdansk', 3, '1', 6),
 (7, 'London', 1, '1', 1),
 (8, 'London', 1, '1', 2),
-(9, 'London', 2, '0', 3),
+(9, 'London', 2, '1', 3),
 (10, 'London', 2, '1', 4),
 (11, 'London', 3, '1', 5),
-(12, 'London', 3, '0', 6),
-(13, 'Paris', 1, '0', 1),
-(14, 'Paris', 1, '0', 2),
+(12, 'London', 3, '1', 6),
+(13, 'Paris', 1, '1', 1),
+(14, 'Paris', 1, '1', 2),
 (15, 'Paris', 2, '1', 3),
-(16, 'Paris', 2, '0', 4),
+(16, 'Paris', 2, '1', 4),
 (17, 'Paris', 3, '1', 5),
-(18, 'Paris', 3, '0', 6);
+(18, 'Paris', 3, '1', 6);
 
 -- --------------------------------------------------------
 
@@ -132,7 +124,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT для таблицы `reservation`
 --
 ALTER TABLE `reservation`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT для таблицы `room`
