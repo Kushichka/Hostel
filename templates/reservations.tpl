@@ -14,8 +14,9 @@
                         </div>
                         <div class="rooms-box-status">
                             <form action="index.php" name="deleteReserv" method="post">
-                                <input type="hidden" name="action" value="reserv">
-                                <input type="hidden" name="roomID" value={$room.id}>
+                                <input type="hidden" name="action" value="deleteReserv">
+                                <input type="hidden" name="roomID" value={$room.roomID}>
+                                <input type="hidden" name="reservID" value={$room.id}>
                                 <div class="rooms-box-status-city">City: {$room.city}</div>
                                 {if ($room.type) == 1}
                                     <div class="rooms-box-status-type">Room: Personal room with 1 huge bed</div>
@@ -24,7 +25,7 @@
                                 {else if ($room.type) == 3}
                                     <div class="rooms-box-status-type">Room: 1 bed in public room with 6 beds</div>
                                 {/if}
-                                <div class="rooms-box-status-name">id: {$room.id}</div>
+                                <div class="rooms-box-status-name">id: {$room.roomID}</div>
                                 <div class="rooms-box-description-btn">
                                     <button class="rooms-box-btn btn-1">Delete</button>
                                 </div>

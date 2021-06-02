@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-05-28 22:46:11
+/* Smarty version 3.1.39, created on 2021-06-02 08:10:19
   from 'C:\xampp\htdocs\php\hostel\templates\rooms.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60b15693a2a170_11588350',
+  'unifunc' => 'content_60b720cb318804_02266187',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a22fa4b131597275c0fc0fcf1e8a9a5eacf72809' => 
     array (
       0 => 'C:\\xampp\\htdocs\\php\\hostel\\templates\\rooms.tpl',
-      1 => 1622234752,
+      1 => 1622614123,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:foot.tpl' => 1,
   ),
 ),false)) {
-function content_60b15693a2a170_11588350 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60b720cb318804_02266187 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:head.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
     <div class="rooms-wrapper">

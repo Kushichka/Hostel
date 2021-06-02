@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-05-29 00:16:36
+/* Smarty version 3.1.39, created on 2021-06-02 08:38:30
   from 'C:\xampp\htdocs\php\hostel\templates\reservations.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60b16bc441ccd3_65062244',
+  'unifunc' => 'content_60b72766a169c8_58326283',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'fd769310c31feca04470895d097a515237021b93' => 
     array (
       0 => 'C:\\xampp\\htdocs\\php\\hostel\\templates\\reservations.tpl',
-      1 => 1622240021,
+      1 => 1622615878,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:foot.tpl' => 1,
   ),
 ),false)) {
-function content_60b16bc441ccd3_65062244 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60b72766a169c8_58326283 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:head.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -46,8 +46,10 @@ $_smarty_tpl->tpl_vars['room']->do_else = false;
                         </div>
                         <div class="rooms-box-status">
                             <form action="index.php" name="deleteReserv" method="post">
-                                <input type="hidden" name="action" value="reserv">
-                                <input type="hidden" name="roomID" value=<?php echo $_smarty_tpl->tpl_vars['room']->value['id'];?>
+                                <input type="hidden" name="action" value="deleteReserv">
+                                <input type="hidden" name="roomID" value=<?php echo $_smarty_tpl->tpl_vars['room']->value['roomID'];?>
+>
+                                <input type="hidden" name="reservID" value=<?php echo $_smarty_tpl->tpl_vars['room']->value['id'];?>
 >
                                 <div class="rooms-box-status-city">City: <?php echo $_smarty_tpl->tpl_vars['room']->value['city'];?>
 </div>
@@ -58,7 +60,7 @@ $_smarty_tpl->tpl_vars['room']->do_else = false;
                                 <?php } elseif (($_smarty_tpl->tpl_vars['room']->value['type']) == 3) {?>
                                     <div class="rooms-box-status-type">Room: 1 bed in public room with 6 beds</div>
                                 <?php }?>
-                                <div class="rooms-box-status-name">id: <?php echo $_smarty_tpl->tpl_vars['room']->value['id'];?>
+                                <div class="rooms-box-status-name">id: <?php echo $_smarty_tpl->tpl_vars['room']->value['roomID'];?>
 </div>
                                 <div class="rooms-box-description-btn">
                                     <button class="rooms-box-btn btn-1">Delete</button>

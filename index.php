@@ -67,60 +67,35 @@ if(isset($_REQUEST['action'])) {
             header('Location: index.php');
         break;
         case 'rooms':
-            switch ($_POST['city']) {
-                case 'Gdansk':
-                    $city = 'Gdansk';
-                    break;
-                case 'London':
-                    $city = 'London';
-                    break;
-                case 'Paris':
-                    $city = 'Paris';
-                    break;             
-                default:
-                    $smarty->display('index.tpl');
-                    break;
+            if($_POST['city'] == 1 || $_POST['room'] == 0)
+            {
+                $smarty->display('index.tpl');
             }
-            switch ($_POST['room']) {
-                case '1': 
-                    $type = 1;
-                    break;
-                case '2':
-                    $type = 2;
-                    break;
-                case '3':
-                    $type = 3;
-                    break;
-                default:
-                    $smarty->display('index.tpl');
-                    break;
+            else {
+                $query = $db->prepare("SELECT * FROM room WHERE city = ? AND type = ?");
+                $query->bind_param("si", $_POST['city'], $_POST['room']);
+                $query->execute();
+                $result = $query->get_result();
+                $rooms = array();
+                while ($row = $result->fetch_assoc()) {
+                    array_push($rooms, $row);
+                }
+                $smarty->assign('rooms', $rooms);
+                $smarty->display('rooms.tpl');
             }
-            $query = $db->prepare("SELECT * FROM room WHERE city = '$city' AND type = '$type'");
-            $query->execute();
-            $result = $query->get_result();
-            $rooms = array();
-            while ($row = $result->fetch_assoc()) {
-                array_push($rooms, $row);
-            }
-            $smarty->assign('rooms', $rooms);
-            $smarty->display('rooms.tpl');
         break;
         case 'reserv':
-            // if(!isset($_POST['roomID'])) {
-            //     $_POST['roomID'] = 1;
-            //     $smarty->assign('error', $_POST['roomID']);
-            //     $smarty->display('login.tpl');
-            // }
-            // else {
-            //     $smarty->assign('error', $_POST['roomID']);
-            //     $smarty->display('login.tpl');
-            // }
             if(!isset($_SESSION['userID'])) {
                 
                 $smarty->assign('error', "Login to make a reservations");
                 $smarty->display('login.tpl');
             }
             else {
+                $query = $db->prepare("UPDATE room SET room.status = 0 WHERE room.id = ? LIMIT 1");
+                $query->bind_param("i", $_REQUEST['roomID']);
+                $query->execute();
+                // $smarty->assign('error', $_REQUEST['roomID']);
+                // $smarty->display('login.tpl');
                 $query = $db->prepare("INSERT INTO reservation (id, username, roomID) VALUES (NULL, ?, ?)");
                 $query->bind_param("si", $_SESSION['email'],$_POST['roomID']);
                 $query->execute();
@@ -133,26 +108,8 @@ if(isset($_REQUEST['action'])) {
                 $smarty->assign('error', "Login to make a reservations");
                 $smarty->display('login.tpl');
             }
-            $query = $db->prepare("SELECT roomID FROM reservation WHERE username = ? LIMIT 1");
+            $query = $db->prepare("SELECT * FROM room JOIN reservation ON reservation.roomID = room.id WHERE reservation.username = ?");
             $query->bind_param("s", $_SESSION['email']);
-            $query->execute();
-            $result = $query->get_result();
-            $row = $result->fetch_assoc();
-            // $arr = array();
-            // while ($row = $result->fetch_assoc()) {
-            //     array_push($arr, $row);
-            // }
-            // $smarty->assign('error', $row['roomID']);
-            // $smarty->display('login.tpl');
-
-            // $roomID = array();
-            // while ($row = $result->fetch_assoc()) {
-            //         array_push($roomID, $row);
-            // } 
-            // $smarty->assign('roomIDs', $roomID);
-
-            $query = $db->prepare("SELECT * FROM room WHERE id = ?");
-            $query->bind_param("i", $row['roomID']);
             $query->execute();
             $result = $query->get_result();
             $rooms = array();
@@ -163,7 +120,16 @@ if(isset($_REQUEST['action'])) {
             $smarty->display('reservations.tpl');
             break;
         case 'deleteReserv':
+            $query = $db->prepare("UPDATE room SET room.status = '1' WHERE room.id = ?");
+            $query->bind_param("i", $_POST['roomID']);
+            $query->execute();
             
+            $query = $db->prepare("DELETE FROM reservation WHERE id = ?");
+            $query->bind_param("i", $_REQUEST['reservID']);
+            $query->execute();
+            // $smarty->assign('error', $_POST['roomID']);
+            // $smarty->display('login.tpl');
+            header('Location: index.php?action=reservations');
             break;
         default: 
             $smarty->display('index.tpl');
