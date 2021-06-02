@@ -1,3 +1,15 @@
+<!-- 
+
+    - Działa rejestracja, login, rezerwacja pokoju oraz rezygnacja z rezerwacji.
+    - Guzik "Reservations" pojawia się po logowaniu.
+    - Nie mozna dokonać rezerwacji bez logowania.
+    - Opuśćiłem wybór daty rezerwacji żęby łatwiej można było sprawdżić działanie strony.
+    - Na lepszy wygląd strony już mi zabrakło czasu, ponieważ mam jeszcze drugi projekt do zrobienia (=
+
+ -->
+
+
+
 <?php
 require_once('./smarty/Smarty.class.php');
 session_start();
